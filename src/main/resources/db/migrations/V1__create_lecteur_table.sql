@@ -1,0 +1,5 @@
+CREATE TABLE lecteur (
+    id SERIAL PRIMARY KEY,
+    heureConnex TIME,
+    dateupdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
