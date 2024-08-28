@@ -11,6 +11,3 @@ public interface lecteurRepository  extends JpaRepository<Lecteur, Long> {
     List<Personne> findByNom(String nom);
 
 }
-
-
-}
