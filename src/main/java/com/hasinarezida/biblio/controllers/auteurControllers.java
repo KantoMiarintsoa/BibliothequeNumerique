@@ -27,7 +27,7 @@ public class auteurControllers {
 
 
     @DeleteMapping("/supprimer/{id}")
-    public ResponseEntity<Void> supprimerAuteur(@PathVariable Long id) {
+    public ResponseEntity<Auteur> supprimerAuteur(@PathVariable Long id) {
         service.deleteById(id);
         return ResponseEntity.noContent().build();
     }

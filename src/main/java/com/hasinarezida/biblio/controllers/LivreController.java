@@ -63,7 +63,7 @@ public class LivreController {
 
     @GetMapping("/filtrer")
     public ResponseEntity<List<Livre>> filtrerLivres(@RequestParam String titre) {
-        List<Livre> livres = service.findByTitre(titre);
+        List<Livre> livres = service.findByNom(titre);
         return ResponseEntity.ok(livres);
     }
 }

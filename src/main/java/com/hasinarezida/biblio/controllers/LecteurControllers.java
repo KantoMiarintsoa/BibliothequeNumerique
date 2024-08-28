@@ -1,6 +1,7 @@
 package com.hasinarezida.biblio.controllers;
 
 import com.hasinarezida.biblio.models.Lecteur;
+import com.hasinarezida.biblio.models.Personne;
 import com.hasinarezida.biblio.service.lecteurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class LecteurControllers {
     private lecteurService service;
 
     @PostMapping("/ajout")
-    public ResponseEntity<Lecteur> ajouterLecteur(@RequestBody Lecteur lecteur) {
-        Lecteur nouveauLecteur = service.ajouterLecteur(lecteur);
+    public ResponseEntity<Personne> ajouterLecteur(@RequestBody Lecteur lecteur) {
+        Personne nouveauLecteur = service.ajouterLecteur(lecteur);
         return ResponseEntity.ok(nouveauLecteur);
     }
 
@@ -29,7 +30,7 @@ public class LecteurControllers {
     }
 
     @PutMapping("/editer/{id}")
-    public ResponseEntity<Lecteur> editerLecteur(@PathVariable Long id, @RequestBody Lecteur lecteurDetails) {
+    public ResponseEntity<Personne> editerLecteur(@PathVariable Long id, @RequestBody Lecteur lecteurDetails) {
         Optional<Lecteur> lecteurOpt = service.findById(id);
         if (lecteurOpt.isPresent()) {
             Lecteur lecteur = lecteurOpt.get();
@@ -38,7 +39,7 @@ public class LecteurControllers {
             lecteur.setEmail(lecteurDetails.getEmail());
             lecteur.setPhone(lecteurDetails.getPhone());
 
-            Lecteur editerLecteur = service.ajouterLecteur(lecteur);
+            Personne editerLecteur = service.ajouterLecteur(lecteur);
             return ResponseEntity.ok(editerLecteur);
         } else {
             return ResponseEntity.notFound().build();
@@ -53,8 +54,8 @@ public class LecteurControllers {
     }
 
     @GetMapping("/filtrer")
-    public ResponseEntity<List<Lecteur>> filtrerLecteurs(@RequestParam String email) {
-        List<Lecteur> lecteurs = service.findByNom(nom);
+    public ResponseEntity<List<Personne>> filtrerLecteurs(@RequestParam String nom) {
+        List<Personne> lecteurs = service.findByNom(nom);
         return ResponseEntity.ok(lecteurs);
     }
 }
