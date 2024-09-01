@@ -2,7 +2,7 @@ package com.hasinarezida.biblio.controllers;
 
 import com.hasinarezida.biblio.models.Lecteur;
 import com.hasinarezida.biblio.models.Personne;
-import com.hasinarezida.biblio.service.lecteurService;
+import com.hasinarezida.biblio.service.LecteurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +12,14 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/lecteur")
-public class LecteurControllers {
+public class LecteurController {
 
-    @Autowired
-    private lecteurService service;
+//    @Autowired
+    private final LecteurService service;
+
+    public LecteurController(LecteurService service){
+        this.service=service;
+    }
 
     @PostMapping("/ajout")
     public ResponseEntity<Personne> ajouterLecteur(@RequestBody Lecteur lecteur) {
@@ -54,8 +58,8 @@ public class LecteurControllers {
     }
 
     @GetMapping("/filtrer")
-    public ResponseEntity<List<Personne>> filtrerLecteurs(@RequestParam String nom) {
-        List<Personne> lecteurs = service.findByNom(nom);
+    public ResponseEntity<List<Lecteur>> filtrerLecteurs(@RequestParam String nom) {
+        List<Lecteur> lecteurs = service.findByNom(nom);
         return ResponseEntity.ok(lecteurs);
     }
 }

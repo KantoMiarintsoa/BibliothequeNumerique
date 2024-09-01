@@ -1,8 +1,7 @@
 package com.hasinarezida.biblio.models;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
-
+@Data
 @Entity
 @Table(name = "auteur")
 public class Auteur extends Personne {

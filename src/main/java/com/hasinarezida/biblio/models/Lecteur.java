@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Data
 @Entity
 @Table(name ="lecteur")
 public class Lecteur extends Personne {

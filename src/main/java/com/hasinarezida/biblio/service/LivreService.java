@@ -1,17 +1,15 @@
 package com.hasinarezida.biblio.service;
 
-import com.hasinarezida.biblio.models.Lecteur;
 import com.hasinarezida.biblio.models.Livre;
-import com.hasinarezida.biblio.models.Personne;
-import com.hasinarezida.biblio.repository.livreRepository;
+import com.hasinarezida.biblio.repository.LivreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 
-public class livreService {
+public class LivreService {
     @Autowired
-    private livreRepository repository;
+    private LivreRepository repository;
     public Livre ajouterLivre(Livre livre) {
         return repository.save(livre);
     }

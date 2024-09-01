@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-images:url('../static/css/images/biblio.jpg');
+}
+a.login {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+a.button-link:hover {
+    background-color: #1c86ee;
+}
+
+.container {
+    display: flex;
+    max-width: 900px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+    shadow:34px;
+}
+
+.left {
+    background-color: grey;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.left h2 {
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.left label {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.left input[type="text"], .left input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.left button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5b86e5;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.left button:hover {
+    background-color: #36d1dc;
+}
+
+.left a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.left a:hover {
+    text-decoration: underline;
+}
+
+.right {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.phrase {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}

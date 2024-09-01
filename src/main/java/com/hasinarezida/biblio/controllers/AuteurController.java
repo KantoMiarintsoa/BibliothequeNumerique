@@ -1,23 +1,19 @@
 package com.hasinarezida.biblio.controllers;
 
 import com.hasinarezida.biblio.models.Auteur;
-import com.hasinarezida.biblio.models.Personne;
-import com.hasinarezida.biblio.service.auteurService;
-import jakarta.persistence.*;
+import com.hasinarezida.biblio.service.AuteurService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auteur")
-public class auteurControllers {
+public class AuteurController {
     @Autowired
-    private auteurService service;
+    private AuteurService service;
 
     @PostMapping("/ajout")
     public ResponseEntity<Auteur> ajouterAuteur(@RequestBody Auteur auteur) {

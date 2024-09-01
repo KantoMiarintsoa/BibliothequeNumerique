@@ -7,13 +7,23 @@ import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
-
-@Entity
-@Table(name = "personne")
+//@Data
+//@Entity
+//@Table(name = "personne")
 public class Personne {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private long id;
+    private String Username;
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
     private String Last_name;
     private String First_name;
     private String gender;
@@ -23,13 +33,13 @@ public class Personne {
     private Date Date_Creation;
     private Date Date_Update;
 
-    public long getId() {
-        return Id;
-    }
-
-    public void setId(long id) {
-        Id = id;
-    }
+//    public long getId() {
+//        return id;
+//    }
+//
+//    public void setId(long id) {
+//        this.id = id;
+//    }
 
     public String getLast_name() {
         return Last_name;

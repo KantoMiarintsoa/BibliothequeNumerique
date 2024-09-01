@@ -1,12 +1,11 @@
 package com.hasinarezida.biblio.controllers;
 
 import com.hasinarezida.biblio.models.Livre;
-import com.hasinarezida.biblio.service.livreService;
+import com.hasinarezida.biblio.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +14,7 @@ import java.util.Optional;
 public class LivreController {
 
     @Autowired
-    private livreService service;
+    private LivreService service;
 
     @PostMapping("/ajout")
     public ResponseEntity<Livre> ajouterLivre(@RequestBody Livre livre) {

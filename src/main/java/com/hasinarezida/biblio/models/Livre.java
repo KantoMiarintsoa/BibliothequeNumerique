@@ -1,14 +1,14 @@
 package com.hasinarezida.biblio.models;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+//import org.springframework.data.annotation.Id;
 
 import java.util.Date;
-
+@Data
 @Entity
 @Table(name = "livre")
 public class Livre {
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String titre;

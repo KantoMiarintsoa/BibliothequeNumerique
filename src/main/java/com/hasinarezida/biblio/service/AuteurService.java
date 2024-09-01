@@ -1,7 +1,7 @@
 package com.hasinarezida.biblio.service;
 
 import com.hasinarezida.biblio.models.Auteur;
-import com.hasinarezida.biblio.repository.auteurRepository;
+import com.hasinarezida.biblio.repository.AuteurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class auteurService  {
+public class AuteurService {
     @Autowired
-    private auteurRepository repository;
+    private AuteurRepository repository;
 
 
     public  Auteur ajouterAuteur(Auteur auteur) {

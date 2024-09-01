@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <title>Login</title>
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <h2>Connexion</h2>
+        <form action="/login" method="post">
+            <div>
+                <label for="username">Email ou nom d'utilisateur:</label>
+                <input type="text" id="username" name="username" placeholder="votre email ou nom d'utilisateur" required>
+            </div>
+            <div>
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" placeholder="Entrer votre mot de passe" required>
+            </div>
+            <a class="login" href="../templates/home.html">Se connecter</a>
+        </form>
+        <a href="../templates/register.html">S'inscrire</a>
+        <a href="">Mot de passe oublié?</a>
+    </div>
+
+    <div class="right">
+        <img src="../static/css/images/istockphoto-1167774265-1024x1024.jpg">
+        <p class="phrase">Explorez un monde de connaissances à portée de clic.</p>
+    </div>
+</div>
+
+<div class="backroundImage">
+</div>
+</body>
+</html>
+
