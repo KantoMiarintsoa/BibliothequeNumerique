@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Lecteur</title>
+    <link rel="stylesheet" href="../static/css/client.css">
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#dashboard">Tableau de Bord</a></li>
+            <li><a href="#livre">Livre</a></li>
+            <li><a href="#profile">Profil</a></li>
+            <li><a href="#deconnecter">Déconnecter</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <section id="dashboard" class="dashboard">
+            <div class="table-container">
+                <h1>Liste des Lecteurs</h1>
+                <div class="search-container">
+                    <input type="text" id="searchBar" placeholder="Rechercher un lecteur..." onkeyup="searchTable()">
+                </div>
+                <table id="lecteursTable">
+                    <thead>
+                    <tr>
+                        <th>Nom du Lecteur</th>
+                        <th>Date de Naissance</th>
+                        <th>Nom d'Utilisateur</th>
+                        <th>Livre </th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Kanto</td>
+                        <td>15/08/1990</td>
+                        <td>johndoe</td>
+                        <td>Les Misérables</td>
+                        <td>
+                            <button class="edit-btn">Éditer</button>
+                            <button class="delete-btn">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>22/11/1985</td>
+                        <td>janesmith</td>
+                        <td>1984</td>
+                        <td>
+                            <button class="edit-btn">Éditer</button>
+                            <button class="delete-btn">Supprimer</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    function searchTable() {
+        const input = document.getElementById("searchBar").value.toUpperCase();
+        const table = document.getElementById("lecteursTable");
+        const tr = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < tr.length; i++) {
+            const td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                const txtValue = td.textContent || td.innerText;
+                tr[i].style.display = txtValue.toUpperCase().indexOf(input) > -1 ? "" : "none";
+            }
+        }
+    }
+</script>
+</body>
+</html>

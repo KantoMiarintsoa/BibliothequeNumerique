@@ -13,11 +13,15 @@ public interface LecteurRepository extends JpaRepository<Lecteur, Long> {
     static boolean findByEmail(String email) {
         return false;
     }
+    List<Lecteur> findByUsername(String username);
 
-    @Query("SELECT id, username from Lecteur l WHERE username=:username")
-    List<Lecteur> findByUsername(@Param("username") String username);
-    List<Lecteur> save(String lecteur);
+    @Query("SELECT l FROM Lecteur l WHERE l.username = :username")
+List<Lecteur> save(String lecteur);
 }
+
+
+
+
 
 
 
