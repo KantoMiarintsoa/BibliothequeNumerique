@@ -14,12 +14,12 @@ import java.util.Optional;
 @RequestMapping("/api/lecteur")
 public class LecteurController {
 
-//    @Autowired
-    private final LecteurService service;
+    @Autowired
+    private LecteurService service;
 
-    public LecteurController(LecteurService service){
-        this.service=service;
-    }
+//    public LecteurController(LecteurService service){
+//        this.service=service;
+//    }
 
     @PostMapping("/ajout")
     public ResponseEntity<Personne> ajouterLecteur(@RequestBody Lecteur lecteur) {

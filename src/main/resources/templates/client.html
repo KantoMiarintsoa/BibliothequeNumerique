@@ -3,80 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Lecteur</title>
+    <title>Page Lecteur</title>
     <link rel="stylesheet" href="../static/css/client.css">
 </head>
 <body>
-<div class="container">
-    <aside class="sidebar">
-        <h2>Menu</h2>
-        <ul>
-            <li><a href="#dashboard">Tableau de Bord</a></li>
-            <li><a href="#livre">Livre</a></li>
-            <li><a href="#profile">Profil</a></li>
-            <li><a href="#deconnecter">Déconnecter</a></li>
-        </ul>
-    </aside>
-
-    <main class="main-content">
-        <section id="dashboard" class="dashboard">
-            <div class="table-container">
-                <h1>Liste des Lecteurs</h1>
-                <div class="search-container">
-                    <input type="text" id="searchBar" placeholder="Rechercher un lecteur..." onkeyup="searchTable()">
-                </div>
-                <table id="lecteursTable">
-                    <thead>
-                    <tr>
-                        <th>Nom du Lecteur</th>
-                        <th>Date de Naissance</th>
-                        <th>Nom d'Utilisateur</th>
-                        <th>Livre </th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Kanto</td>
-                        <td>15/08/1990</td>
-                        <td>johndoe</td>
-                        <td>Les Misérables</td>
-                        <td>
-                            <button class="edit-btn">Éditer</button>
-                            <button class="delete-btn">Supprimer</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>22/11/1985</td>
-                        <td>janesmith</td>
-                        <td>1984</td>
-                        <td>
-                            <button class="edit-btn">Éditer</button>
-                            <button class="delete-btn">Supprimer</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
+<div class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="#">Lecteur</a></li>
+        <li><a href="#">Profil</a></li>
+        <li><a href="#">Déconnecter</a></li>
+    </ul>
 </div>
+<div class="container">
+    <h2>Panneau de lecteur</h2>
 
-<script>
-    function searchTable() {
-        const input = document.getElementById("searchBar").value.toUpperCase();
-        const table = document.getElementById("lecteursTable");
-        const tr = table.getElementsByTagName("tr");
+    <div class="cards">
+        <div class="card">
+            <h3>Livres telecharges</h3>
+            <p>5 livres</p>
+            <a href="#" class="btn">Voir détails</a>
+        </div>
+        <div class="card">
+            <h3>Quota de téléchargement</h3>
+            <p>15 livres restants</p>
+            <a href="#" class="btn">Voir détails</a>
+        </div>
+        <div class="card">
+            <h3>Recommandations</h3>
+            <p>3 nouveaux livres</p>
+            <a href="#" class="btn">Découvrir</a>
+        </div>
+        <div class="card">
+            <h3>Favoris</h3>
+            <p>2 livres sauvegardés</p>
+            <a href="#" class="btn">Gérer</a>
+        </div>
+    </div>
 
-        for (let i = 1; i < tr.length; i++) {
-            const td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                const txtValue = td.textContent || td.innerText;
-                tr[i].style.display = txtValue.toUpperCase().indexOf(input) > -1 ? "" : "none";
-            }
-        }
-    }
-</script>
+    <h2>Mes listes de telechargement</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Email de lecteur </th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Date de téléchargement</th>
+            <th>Format</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>kanto@gmail.com </td>
+            <td> Princesse </td>
+            <td>Georg</td>
+            <td>01/05/2023</td>
+            <td>EPUB</td>
+            <td><a href="#" class="btn">Supprimer</a></td>
+        </tr>
+        <tr>
+            <td>sarobidy </td>
+            <td> riviere</td>
+            <td>Kanto</td>
+            <td>01/05/2021</td>
+            <td>EPUB</td>
+            <td><a href="#" class="btn">Supprimer</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
