@@ -3,10 +3,12 @@ package com.hasinarezida.biblio.service;
 import com.hasinarezida.biblio.models.Livre;
 import com.hasinarezida.biblio.repository.LivreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class LivreService {
     @Autowired
     private LivreRepository repository;

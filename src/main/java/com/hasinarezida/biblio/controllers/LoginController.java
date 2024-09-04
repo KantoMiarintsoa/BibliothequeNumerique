@@ -15,12 +15,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/login")
 public class LoginController {
-
-    @Autowired
+    private final PasswordEncoder passwordEncoder;
     private LecteurRepository repository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    public LoginController(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
+
 
     @PostMapping
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
@@ -33,3 +36,9 @@ public class LoginController {
         }
     }
 }
+
+
+
+
+
+

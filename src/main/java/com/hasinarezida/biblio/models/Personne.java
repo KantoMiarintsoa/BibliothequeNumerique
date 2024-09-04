@@ -8,11 +8,11 @@ import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 //@Data
-//@Entity
-//@Table(name = "personne")
+@Entity
+@Table(name = "personne")
 public class Personne {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private long id;
     private String Username;
 
