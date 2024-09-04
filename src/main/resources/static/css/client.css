@@ -5,12 +5,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Style de la barre latérale */
 .sidebar {
     width: 200px;
     background-color: #f4f4f4;
     padding: 20px;
-    height: 100vh; /* Hauteur de la barre latérale */
+    height: 100vh;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     position: fixed;
 }
@@ -71,7 +70,7 @@ h2 {
 
 .card h2 {
     margin-top: 0;
-    color: #000; /* Couleur des titres dans les cartes */
+    color: #000;
 }
 
 .btn {
