@@ -4,49 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Lecteur</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../static/css/client.css">
+    <style>
+
+        }
+    </style>
 </head>
 <body>
-<div class="sidebar">
+<div class="sidebar bg-dark">
     <h2>Menu</h2>
-    <ul>
-        <li><a href="#">Lecteur</a></li>
-        <li><a href="#">Profil</a></li>
-        <li><a href="#">Déconnecter</a></li>
+    <ul class="list-unstyled">
+        <li><a href="#" class="btn"><i class="fas fa-user"></i> Lecteur</a></li>
+        <li><a href="#" class="btn"><i class="fas fa-user-cog"></i> Profil</a></li>
+        <li><a href="#" class="btn"><i class="fas fa-sign-out-alt"></i> Déconnecter</a></li>
     </ul>
+
+    <!-- Filter Form -->
+<!--    <div class="filter-form bg-light p-3 rounded">-->
+<!--        <h5>Filtrer les téléchargements</h5>-->
+<!--        <form>-->
+<!--            <div class="form-group">-->
+<!--                <label for="filter-email">Email de lecteur</label>-->
+<!--                <input type="text" class="form-control" id="filter-email" placeholder="Filtrer par email">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="filter-title">Titre</label>-->
+<!--                <input type="text" class="form-control" id="filter-title" placeholder="Filtrer par titre">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="filter-author">Auteur</label>-->
+<!--                <input type="text" class="form-control" id="filter-author" placeholder="Filtrer par auteur">-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary">Filtrer</button>-->
+<!--        </form>-->
+<!--    </div>-->
 </div>
 <div class="container">
     <h2>Panneau de lecteur</h2>
 
     <div class="cards">
         <div class="card">
-            <h3>Livres telecharges</h3>
+            <h5>Livres téléchargés</h5>
             <p>5 livres</p>
-            <a href="#" class="btn">Voir détails</a>
+            <a href="#" class="btn btn-primary">Voir détails</a>
         </div>
         <div class="card">
-            <h3>Quota de téléchargement</h3>
+            <h6>Quota de téléchargement</h6>
             <p>15 livres restants</p>
-            <a href="#" class="btn">Voir détails</a>
+            <a href="#" class="btn btn-primary">Voir détails</a>
         </div>
         <div class="card">
-            <h3>Recommandations</h3>
+            <h5>Recommandations</h5>
             <p>3 nouveaux livres</p>
-            <a href="#" class="btn">Découvrir</a>
+            <a href="#" class="btn btn-primary">Découvrir</a>
         </div>
         <div class="card">
-            <h3>Favoris</h3>
+            <h5>Favoris</h5>
             <p>2 livres sauvegardés</p>
-            <a href="#" class="btn">Gérer</a>
+            <a href="#" class="btn btn-primary">Gérer</a>
         </div>
     </div>
 
-    <h2>Mes listes de telechargement</h2>
+    <h2>Mes listes de téléchargement</h2>
 
-    <table>
+    <div class="search-form">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Recherche</button>
+        </form>
+    </div>
+
+    <table class="table table-striped">
         <thead>
         <tr>
-            <th>Email de lecteur </th>
+            <th>Email de lecteur</th>
             <th>Titre</th>
             <th>Auteur</th>
             <th>Date de téléchargement</th>
@@ -56,23 +89,33 @@
         </thead>
         <tbody>
         <tr>
-            <td>kanto@gmail.com </td>
-            <td> Princesse </td>
+            <td>kanto@gmail.com</td>
+            <td>Princesse</td>
             <td>Georg</td>
             <td>01/05/2023</td>
             <td>EPUB</td>
-            <td><a href="#" class="btn">Supprimer</a></td>
+            <td>
+                <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+            </td>
         </tr>
         <tr>
-            <td>sarobidy </td>
-            <td> riviere</td>
+            <td>sarobidy@gmail.com</td>
+            <td>Rivière</td>
             <td>Kanto</td>
             <td>01/05/2021</td>
             <td>EPUB</td>
-            <td><a href="#" class="btn">Supprimer</a></td>
+            <td>
+                <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+            </td>
         </tr>
         </tbody>
     </table>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

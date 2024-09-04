@@ -6,23 +6,13 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name ="lecteur")
 public class Lecteur extends Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Date heureConnex;
-    private String username;
 
     @Override
-    public String getUsername() {
-        return username;
-    }
-
-    @Override
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public long getId() {
         return id;

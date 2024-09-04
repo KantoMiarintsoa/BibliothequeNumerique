@@ -3,27 +3,18 @@ package com.hasinarezida.biblio.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
-
 import java.util.Date;
-//@Data
-@Entity
+
 @Table(name = "personne")
+@Entity
 public class Personne {
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private long id;
+    private long id;
+
     private String Username;
-
-    public String getUsername() {
-        return Username;
-    }
-
-    public void setUsername(String username) {
-        Username = username;
-    }
-
     private String Last_name;
     private String First_name;
     private String gender;
@@ -33,13 +24,22 @@ public class Personne {
     private Date Date_Creation;
     private Date Date_Update;
 
-//    public long getId() {
-//        return id;
-//    }
-//
-//    public void setId(long id) {
-//        this.id = id;
-//    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
 
     public String getLast_name() {
         return Last_name;

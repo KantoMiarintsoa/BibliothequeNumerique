@@ -3,7 +3,6 @@ import jakarta.persistence.*;
 
 @Data
 @Entity
-@Table(name = "auteur")
 public class Auteur extends Personne {
     @Id
     @Column(name = "id")

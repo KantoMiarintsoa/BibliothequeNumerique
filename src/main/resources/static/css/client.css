@@ -13,11 +13,30 @@ body {
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     position: fixed;
 }
+      .sidebar a {
+            color: grey;
+            background-color: grey;
+            text-decoration: none;
+            border-radius: 0;
+            display: block;
+            padding: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #f8f9fa;
+            color: black;
+        }
+        .sidebar {
+            padding: 10px;
+            background-color: white;
+
+        }
+.card h3{
+}
 
 .sidebar h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: #000; /* Couleur des titres dans la barre latérale */
+    color: #000;
 }
 
 .sidebar ul {
@@ -46,6 +65,9 @@ body {
 .container {
     margin-left: 220px;
     padding:50px;
+}
+.btn btn-danger{
+color:white;
 }
 
 h2 {
