@@ -7,32 +7,28 @@
     <link rel="stylesheet" href="../static/css/livreClient.css">
 </head>
 <body>
+<button class="top-button">Retour</button>
+<div class="book-container">
+    <h1 class="book-title">Titre du Livre</h1>
+    <div class="image-container">
+        <p class="short-text">Dans un monde où les frontières entre réalité et rêve se dissipent, l'histoire suit le parcours d'Élodie, une jeune femme en quête de réponses sur son passé mystérieux. Au fil des pages, elle découvre des secrets profondément enfouis, des alliances inattendues et des ennemis invisibles. Chaque chapitre dévoile un nouveau pan de sa vie, entre trahisons, espoirs, et rebondissements spectaculaires. Ce récit captivant nous entraîne dans une aventure épique où le destin d'Élodie pourrait bien changer le cours de l'histoire à jamais</p>
+        <img src="../static/css/images/imagin.jpg" alt="Image du Livre" class="book-image">
+    </div>
+    <div class="book-details">
+        <h2>Chapitres</h2>
+        <p>Chapitre 1: Introduction<br>Chapitre 2: Développement<br>Chapitre 3: Conclusion</p>
 
-<div class="container">
-    <h1 class="title">Book Title</h1>
-    <div class="content">
-        <div class="image-container">
-            <img src="../static/css/images/istockphoto-1167774265-1024x1024.jpg" alt="Book Cover" class="book-image">
-        </div>
-        <div class="details">
-            <h2>Book Details</h2>
-            <ul class="book-info">
-                <li><strong>Auteur:</strong> Author Name</li>
-                <li><strong>Catégorie:</strong> Fiction</li>
-                <li><strong>Date de Publication:</strong> January 1, 2023</li>
-                <li><strong>ISBN:</strong> 978-3-16-148410-0</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h2>Résumé</h2>
+        <p>Ceci est un bref résumé du livre qui donne un aperçu général du contenu. Le livre explore divers aspects de la vie quotidienne à travers les yeux de personnages profondément touchés par les événements mondiaux. À chaque chapitre, l'auteur nous emmène dans une réflexion sur les thèmes universels tels que l'amour, la perte, et l'espoir. Le lecteur est transporté dans un voyage émotionnel riche en rebondissements.</p>
 
-            <h3>Chapitre 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
-
-            <h3>Chapitre 2</h3>
-            <p>Phasellus imperdiet libero sit amet massa ullamcorper, at varius justo gravida.</p>
-        </div>
+        <h2>Détails</h2>
+        <p>Auteur: Jean Dupont<br>Année: 2023<br>Genre: Fiction</p>
     </div>
 </div>
-
+<script>
+    document.querySelector('.top-button').addEventListener('click', function() {
+        window.history.back(); // Action pour retourner à la page précédente
+    });
+</script>
 </body>
 </html>
