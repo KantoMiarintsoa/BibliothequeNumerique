@@ -36,7 +36,6 @@ public class AuteurController {
         if (auteurOpt.isPresent()) {
             Auteur auteur = auteurOpt.get();
             auteur.setPseudo(auteurDetails.getPseudo());
-
             Auteur editerAuteur = service.ajouterAuteur(auteur);
             return ResponseEntity.ok(editerAuteur);
         } else {

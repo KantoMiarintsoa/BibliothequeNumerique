@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Liste de Livres</title>
+    <link rel="stylesheet" href="../static/css/auteurPage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Liste de Livres</h2>
+    <div class="book-container">
+        <div class="book-item">
+            <img src="../static/images/author.jpg" alt="Rose jack" class="book-image">
+            <div class="book-details">
+                <h3>Le Nom de la Rose</h3>
+                <p>Date de Publication : 1980-11-01</p>
+                <p>Roman historique de Umberto Eco.</p>
+            </div>
+        </div>
+        <div class="book-item">
+            <img src="../static/images/author.jpg" alt="Les miserables " class="book-image">
+            <div class="book-details">
+                <h3>Les Misérables</h3>
+                <p>Date de Publication : 1862-03-01</p>
+                <p>Classique de Victor Hugo.</p>
+            </div>
+        </div>
+        <div class="book-item">
+            <img src="../static/images/author.jpg" alt="1984" class="book-image">
+            <div class="book-details">
+                <h3>1984</h3>
+                <p>Date de Publication : 1949-06-08</p>
+                <p>Dystopie de George Orwell.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bouton pour ouvrir le modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Ajouter livre
+</button>
+
+<!-- Modal pour ajouter un livre -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un Livre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addBookForm">
+                    <div class="form-group">
+                        <label for="author">Auteur</label>
+                        <input type="text" class="form-control" id="author" placeholder="Nom de l'auteur">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pseudo">Auteur</label>
+                        <input type="text" class="form-control" id="pseudo" placeholder=" votre pseudo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Titre du Livre</label>
+                        <input type="text" class="form-control" id="title" placeholder="Titre">
+                    </div>
+                    <div class="form-group">
+                        <label for="publisher">Éditeur</label>
+                        <input type="text" class="form-control" id="publisher" placeholder="Nom de l'éditeur">
+                    </div>
+                    <div class="form-group">
+                        <label for="edition">Édition</label>
+                        <input type="text" class="form-control" id="edition" placeholder="Numéro d'édition">
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Année d'édition</label>
+                        <input type="number" class="form-control" id="year" placeholder="Année">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Catégorie</label>
+                        <select class="form-control" id="category">
+                            <option>Roman</option>
+                            <option>Science-fiction</option>
+                            <option>Histoire</option>
+                            <option>Philosophie</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" rows="3" placeholder="Résumé du livre"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverImage">Image de couverture</label>
+                        <input type="file" class="form-control-file" id="coverImage">
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Langue</label>
+                        <select class="form-control" id="language">
+                            <option>Français</option>
+                            <option>Anglais</option>
+                            <option>Espagnol</option>
+                            <option>Allemand</option>
+                            <option>Malagasy</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Fichier</label>
+                        <input type="file" class="form-control-file" id="file">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary">Valider</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

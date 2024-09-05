@@ -1,90 +1,92 @@
-body {
+/* Réinitialisation des marges et du padding */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    height: 100vh;
+    background-color: #f4f4f4;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-image: url('../static/css/images/bible.jpg');
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
 }
-
-.background-image {
-    display: none;
-}
-
-a.button-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1e90ff;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-a.button-link:hover {
-    background-color: #1c86ee;
-}
-
 
 .form-container {
-    background: grey;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
+    max-width: 600px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 h1 {
     margin-bottom: 20px;
-    color: #fff;
-    text-align: center;
+    color: #333333;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    color: black;
-    font-size: 14px;
-    margin-bottom: 8px;
     display: block;
+    margin-bottom: 5px;
+    color: #555555;
+    text-align: left;
 }
 
-input[type="email"], input[type="text"], input[type="password"] {
+input[type="email"],
+input[type="text"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.8);
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #5b86e5;
-    color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-bottom: 15px; /* Réduction de l'espace entre les champs */
 }
 
-button:hover {
-    background-color: #36d1dc;
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Style pour le bouton de soumission */
+.button-link {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
 }
 
 a {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: black;
+    color: #007bff;
     text-decoration: none;
+    font-size: 16px;
+    display: block;
+    margin-top: 10px;
 }
 
 a:hover {
