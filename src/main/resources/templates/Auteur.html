@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Auteur</title>
-    <link rel="stylesheet" th:href="@{css/auteur.css}">
+    <link rel="stylesheet" th:href="@{/css/auteur.css}">
 </head>
 <body>
 <header>
     <div class="top-bar">
-        <a href="/">Se connecter</a>
-        <a href="/">S'inscrire</a>
+        <a th:href="@{/register}">S'inscrire</a>
+        <a th:href="@{/login}">Se connecter</a>
         <a href="#">Aide</a>
     </div>
 </header>
 
 <section>
-    <img src="../static/images/lecture.jpg" alt="Bannière" class="header-image">
+    <img th:src="@{/images/lecture.jpg}" alt="Bannière" class="header-image">
 </section>
 
 <main>
@@ -26,7 +26,7 @@
 
 <div class="Reglement">
     <div class="reglement-item">
-        <img src="../static/images/author.jpg" alt="">
+        <img th:src="@{/images/author.jpg}" alt="">
         <div class="text-content">
             <h3>Règlement 1</h3>
             <p>Description du règlement 1</p>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="reglement-item">
-        <img src="../static/images/cosmotique.png" alt="">
+        <img th:src="@{/images/cosmotique.png}" alt="">
         <div class="text-content">
             <h3>Méthode pour ajouter un livre</h3>
             <p>Règlement 2</p>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="reglement-item">
-        <img src="../static/images/politique.png" alt="">
+        <img th:src="@{/images/politique.png}" alt="">
         <div class="text-content">
             <h3>Méthode pour bien ajouter un livre à la plateforme</h3>
             <p>Méthode pour bien ajouter un livre sur la plateforme</p>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="reglement-item">
-        <img src="../static/images/psyco.jpg" alt="">
+        <img th:src="@{/images/psyco.jpg}" alt="">
         <div class="text-content">
             <h3>Règlement de l'auteur</h3>
             <p>Texte de règlement pour l'auteur</p>
@@ -68,19 +68,18 @@
         <div class="footer-section links">
             <h3>Liens rapides</h3>
             <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Publications</a></li>
-                <li><a href="#">Contact:</a></li>
-                <li><a href="#">Mentions légales</a></li>
+                <li><a th:href="@{/}">Accueil</a></li>
+                <li><a th:href="@{/publications}">Publications</a></li>
+                <li><a th:href="@{/contact}">Contact</a></li>
+                <li><a th:href="@{/mentions-legales}">Mentions légales</a></li>
             </ul>
         </div>
 
         <div class="footer-section social">
             <h3>Suivez-moi</h3>
-            <a href="#"><img src="../static/images/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="../static/images/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="../static/images/social.png" alt="Instagram"></a>
-            <a href="#"><img src="../static/images/linkedin.png" alt="linkdin"></a>
+            <a th:href="@{#}" th:src="@{/images/twitter.png}" alt="Twitter"><img th:src="@{/images/twitter.png}" alt="Twitter"></a>
+            <a th:href="@{#}" th:src="@{/images/social.png}" alt="Instagram"><img th:src="@{/images/social.png}" alt="Instagram"></a>
+            <a th:href="@{#}" th:src="@{/images/linkedin.png}" alt="LinkedIn"><img th:src="@{/images/linkedin.png}" alt="LinkedIn"></a>
         </div>
     </div>
 

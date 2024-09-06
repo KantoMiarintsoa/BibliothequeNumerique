@@ -16,8 +16,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/api/login")
 public class LoginController {
-    @GetMapping("/")
-
+    @GetMapping("/login")
     public String login() {
         return "index";
     }
