@@ -26,27 +26,48 @@
         <label for="confirm">Confirmer le mot de passe</label>
         <input type="password" id="confirm" name="confirm" placeholder="" required>
 
-        <a href="../templates/home.html" type="submit" class="button-link">S'inscrire</a>
-        <a href="loginAuteur.html">Se connecter</a>
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+        <a th:href="@{/login}">Se connecter</a>
     </form>
 </div>
 
 <script>
-    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        var email = document.getElementById('email').value;
-        var firstName = document.getElementById('firstName').value;
-        var lastName = document.getElementById('lastName').value;
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('confirm').value;
+        const formData = new FormData(form);
+        const jsonData = {
+            username: formData.get('username'),
+            email: formData.get('email'),
+            password: formData.get('password')
+        };
 
-        if (email && firstName && lastName && password && confirmPassword && password === confirmPassword) {
-            window.location.href = "home.html";
-        } else {
-            alert('Veuillez remplir tous les champs.');
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(jsonData)
+            });
+
+            if (response.ok) {
+                alert('Inscription réussie');
+                window.location.href = '/login';
+            } else {
+                const errorData = await response.json();
+                alert(`Erreur : ${errorData.message}`);
+            }
+        } catch (error) {
+            alert('Une erreur est survenue lors de l\'inscription.');
+            console.error('Erreur:', error);
         }
     });
+});
+
 </script>
 </body>
 </html>
