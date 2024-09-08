@@ -26,9 +26,66 @@
     </div>
 </div>
 <script>
-    document.querySelector('.top-button').addEventListener('click', function() {
-        window.history.back();
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('addBookForm');
+        const submitButton = document.getElementById('submitBook');
+
+        submitButton.addEventListener('click', async () => {
+            const formData = new FormData(form);
+            const bookData = {
+                titre: formData.get('titre'),
+                description: formData.get('description'),
+                edition: formData.get('edition'),
+                fichier: formData.get('fichier'),
+                langue: formData.get('langue'),
+                imageCouverture: formData.get('imageCouverture'),
+                langue: formData.get('langue'),
+                editeur: formData.get('editeur'),
+                anneeEdition: formData.get('anneeEdition'),
+                datePublication:formData.get('datePublication')
+
+            };
+
+            try {
+                const response = await fetch('/api/livre/ajout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(jsonDate)
+                });
+
+                if (response.ok) {
+                    alert('Livre soumis pour validation avec succès');
+                    form.reset();
+                    $('#exampleModalCenter').modal('hide');
+                    const book = await response.json();
+                    addBookToPage(book);
+                } else {
+                    const errorData = await response.json();
+                    alert(`Erreur : ${errorData.message}`);
+                }
+            } catch (error) {
+                alert('Une erreur est survenue lors de l\'ajout du livre.');
+                console.error('Erreur:', error);
+            }
+        });
     });
+
+    function addBookToPage(livre) {
+        const bookContainer = document.querySelector('.book-container');
+        const bookElement = document.createElement('div');
+        bookElement.classList.add('book-item');
+        bookElement.innerHTML = `
+            <img src="${book.coverImage}" alt="${book.title}" class="book-image">
+            <div class="book-details">
+                <h3>${book.title}</h3>
+                <p>Date de Publication : ${book.year}</p>
+                <p>${book.description}</p>
+            </div>
+        `;
+        bookContainer.appendChild(bookElement);
+    }
 </script>
 </body>
 </html>

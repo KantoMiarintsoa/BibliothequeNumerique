@@ -1,5 +1,7 @@
 package com.hasinarezida.biblio.controllers;
 
+import com.hasinarezida.biblio.dto.LivreRequest;
+import com.hasinarezida.biblio.models.Auteur;
 import com.hasinarezida.biblio.models.Livre;
 import com.hasinarezida.biblio.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,19 @@ public class LivreController {
     private LivreService service;
 
     @PostMapping("/ajout")
-    public ResponseEntity<Livre> ajouterLivre(@RequestBody Livre livre) {
+    public ResponseEntity<Livre> ajouterLivre(@RequestBody LivreRequest livrerequest) {
+        Livre livre = new Livre();
+        livre.setTitre(livrerequest.titre);
+        livre.setEditeur(livrerequest.Editeur);
+        livre.setEdition(livrerequest.Edition);
+        livre.setAnneeEdition(livrerequest.AnneeEdition);
+        livre.setDatePublication(livrerequest.DatePublication);
+        livre.setDescription(livrerequest.description);
+        livre.setDateSortie(livrerequest.DateSortie);
+
         Livre nouveauLivre = service.ajouterLivre(livre);
         return ResponseEntity.ok(nouveauLivre);
+
     }
 
     @DeleteMapping("/supprimer/{id}")
@@ -34,7 +46,6 @@ public class LivreController {
         if (livreOpt.isPresent()) {
             Livre livre = livreOpt.get();
             livre.setTitre(livreDetails.getTitre());
-            livre.setAuteur_Id(livreDetails.getAuteur_Id());
             livre.setEditeur(livreDetails.getEditeur());
             livre.setEdition(livreDetails.getEdition());
             livre.setAnneeEdition(livreDetails.getAnneeEdition());

@@ -15,8 +15,7 @@ public interface LecteurRepository extends JpaRepository<Lecteur, Long> {
     }
 
 
-    @Query("SELECT l FROM Lecteur l WHERE l.Username = :Username")
-    List<Lecteur> findByUsername(@Param("Username") String Username);
+    List<Lecteur> findByUsername( String Username);
 }
 
 

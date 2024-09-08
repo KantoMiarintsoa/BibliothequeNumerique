@@ -15,9 +15,11 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/register")
+                        .ignoringRequestMatchers("/api/livre/ajout")
+
                 )
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/home", "/about", "/login", "/register", "/static/**", "/css/**", "/js/**", "/api/register").permitAll()
+                        .requestMatchers("/home", "/about", "/login", "/register", "/static/**", "/css/**", "/js/**", "/api/register","/api/livre/ajout","/AuteurPage").permitAll()
                         .requestMatchers("/auteur/**").hasRole("AUTEUR")
                         .anyRequest().authenticated()
                 )

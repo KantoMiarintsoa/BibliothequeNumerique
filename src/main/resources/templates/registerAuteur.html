@@ -43,10 +43,11 @@
 
         const formData = new FormData(form);
         const jsonData = {
-            nom: formData.get('nom'),
-            prenom: formData.get('prenom'),
-            pseudo: formData.get('pseudo'),
-            email: formData.get('email'),
+
+            Last_name: formData.get('nom'),
+            First_name: formData.get('prenom'),
+            Username: formData.get('pseudo'),
+            Email: formData.get('email'),
             password: formData.get('password')
 
         };

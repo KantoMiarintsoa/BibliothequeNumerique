@@ -106,25 +106,26 @@
         submitButton.addEventListener('click', async () => {
             const formData = new FormData(form);
             const bookData = {
-                title: formData.get('title'),
-                author: formData.get('author'),
-                publisher: formData.get('publisher'),
-                edition: formData.get('edition'),
-                year: formData.get('year'),
-                category: formData.get('category'),
+                titre: formData.get('titre'),
                 description: formData.get('description'),
-                coverImage: formData.get('coverImage'),
-                language: formData.get('language'),
-                file: formData.get('file')
+                edition: formData.get('edition'),
+                fichier: formData.get('fichier'),
+                langue: formData.get('langue'),
+                imageCouverture: formData.get('imageCouverture'),
+                langue: formData.get('langue'),
+                editeur: formData.get('editeur'),
+                anneeEdition: formData.get('anneeEdition'),
+                datePublication:formData.get('datePublication')
+
             };
 
-            try {
-                const response = await fetch('/api/books/validate', {
+
+                const response = await fetch('/api/livre/ajout', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(bookData)
+                    body: JSON.stringify(jsonData)
                 });
 
                 if (response.ok) {
@@ -137,27 +138,7 @@
                     const errorData = await response.json();
                     alert(`Erreur : ${errorData.message}`);
                 }
-            } catch (error) {
-                alert('Une erreur est survenue lors de l\'ajout du livre.');
-                console.error('Erreur:', error);
-            }
-        });
     });
-
-    function addBookToPage(book) {
-        const bookContainer = document.querySelector('.book-container');
-        const bookElement = document.createElement('div');
-        bookElement.classList.add('book-item');
-        bookElement.innerHTML = `
-            <img src="${book.coverImage}" alt="${book.title}" class="book-image">
-            <div class="book-details">
-                <h3>${book.title}</h3>
-                <p>Date de Publication : ${book.year}</p>
-                <p>${book.description}</p>
-            </div>
-        `;
-        bookContainer.appendChild(bookElement);
-    }
 </script>
 </body>
 </html>

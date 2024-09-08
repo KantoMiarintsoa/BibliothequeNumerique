@@ -11,7 +11,6 @@ public class Livre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String titre;
-    private long Auteur_Id;
     private String Editeur;
     private String Edition;
     private Date AnneeEdition;
@@ -37,14 +36,6 @@ public class Livre {
 
     public void setTitre(String titre) {
         this.titre = titre;
-    }
-
-    public long getAuteur_Id() {
-        return Auteur_Id;
-    }
-
-    public void setAuteur_Id(long auteur_Id) {
-        Auteur_Id = auteur_Id;
     }
 
     public String getEditeur() {
@@ -126,8 +117,8 @@ public class Livre {
     public void setLangue(String langue) {
         this.langue = langue;
     }
+
+    @ManyToOne
+    @JoinColumn(name="auteur_id")
+    private Auteur auteur;
 }
-
-
-
-

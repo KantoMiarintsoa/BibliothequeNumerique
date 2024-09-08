@@ -1,24 +1,17 @@
 package com.hasinarezida.biblio.models;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Data
 @Entity
+//@DiscriminatorValue("AUTEUR")
 public class Auteur extends Personne {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
 
     @Column(name = "pseudo")
     private String pseudo;
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getPseudo() {
         return pseudo;
@@ -26,5 +19,12 @@ public class Auteur extends Personne {
 
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
+    }
+
+    @OneToMany(mappedBy = "auteur" ,fetch=FetchType.EAGER)
+    private List<Livre>livres;
+
+    public List<Livre> getLivres() {
+        return livres;
     }
 }

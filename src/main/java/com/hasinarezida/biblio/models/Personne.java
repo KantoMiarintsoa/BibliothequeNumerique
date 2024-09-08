@@ -1,31 +1,25 @@
 package com.hasinarezida.biblio.models;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
-@Table(name = "personne")
+
 @Entity
-public class Personne {
+@Table(name = "personne")
+@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name = "dtype")
+//@MappedSuperclass
+public abstract class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private long id;
 
-    private String Username;
+    @Column(nullable = false)
+    private String username;
 
     @Column(name = "last_name")
-    private String lastName;
-
-    private String First_name;
-    private String gender;
-
-    @Column(name = "email")
-    private String email;
-    private String password;
-    private String phone;
-    private Date Date_Creation;
-    private Date Date_Update;
-
+    private String LastName;
 
     public long getId() {
         return id;
@@ -36,19 +30,19 @@ public class Personne {
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        LastName = lastName;
     }
 
     public String getFirst_name() {
@@ -106,4 +100,24 @@ public class Personne {
     public void setDate_Update(Date date_Update) {
         Date_Update = date_Update;
     }
+
+    @Column(name = "first_name")
+    private String First_name;
+
+    private String gender;
+
+    @Column(name = "email")
+    private String email;
+
+    private String password;
+    private String phone;
+
+    @Column(name = "date_creation")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date Date_Creation;
+
+    @Column(name = "date_update")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date Date_Update;
+
 }
