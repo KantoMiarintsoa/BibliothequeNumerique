@@ -38,7 +38,7 @@ public class LecteurController {
         Optional<Lecteur> lecteurOpt = service.findById(id);
         if (lecteurOpt.isPresent()) {
             Lecteur lecteur = lecteurOpt.get();
-            lecteur.setLast_name(lecteurDetails.getLast_name());
+            lecteur.setLastName(lecteurDetails.getLastName());
             lecteur.setFirst_name(lecteurDetails.getFirst_name());
             lecteur.setEmail(lecteurDetails.getEmail());
             lecteur.setPhone(lecteurDetails.getPhone());

@@ -1,6 +1,6 @@
 package com.hasinarezida.biblio.controllers;
 
-public class WebSecurityConfig{
+public class    WebSecurityConfig{
 
 }
 

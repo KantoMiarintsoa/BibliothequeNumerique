@@ -1,10 +1,7 @@
 package com.hasinarezida.biblio.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 @Table(name = "personne")
@@ -15,10 +12,15 @@ public class Personne {
     private long id;
 
     private String Username;
-    private String Last_name;
+
+    @Column(name = "last_name")
+    private String lastName;
+
     private String First_name;
     private String gender;
-    private String Email;
+
+    @Column(name = "email")
+    private String email;
     private String password;
     private String phone;
     private Date Date_Creation;
@@ -41,12 +43,12 @@ public class Personne {
         Username = username;
     }
 
-    public String getLast_name() {
-        return Last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        Last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getFirst_name() {
@@ -66,11 +68,11 @@ public class Personne {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {

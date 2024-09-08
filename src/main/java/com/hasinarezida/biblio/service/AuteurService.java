@@ -29,5 +29,11 @@ public class AuteurService {
     public List<Auteur> findByNom(String nom) {
         return repository.findByPseudo(nom);
     }
+    
+    public boolean existEmail(String email){
+
+        boolean test= !repository.findByEmail(email).isEmpty();
+        return test;
+    }
 }
 
