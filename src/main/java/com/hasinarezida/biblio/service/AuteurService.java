@@ -27,7 +27,7 @@ public class AuteurService {
     }
 
     public List<Auteur> findByNom(String nom) {
-        return repository.findByPseudo(nom);
+        return repository.findByUsername(nom);
     }
     
     public boolean existEmail(String email){

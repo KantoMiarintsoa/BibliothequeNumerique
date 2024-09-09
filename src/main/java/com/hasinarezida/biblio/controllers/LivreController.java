@@ -1,5 +1,6 @@
 package com.hasinarezida.biblio.controllers;
 
+import ch.qos.logback.core.model.Model;
 import com.hasinarezida.biblio.dto.LivreRequest;
 import com.hasinarezida.biblio.models.Auteur;
 import com.hasinarezida.biblio.models.Livre;
@@ -27,12 +28,21 @@ public class LivreController {
         livre.setAnneeEdition(livrerequest.AnneeEdition);
         livre.setDatePublication(livrerequest.DatePublication);
         livre.setDescription(livrerequest.description);
-        livre.setDateSortie(livrerequest.DateSortie);
+        livre.setDateSortie(livrerequest.dateSortie);
+        livre.setLangue(livrerequest.langue);
+        livre.setFichier(livrerequest.fichier);
+        livre.setImageCouverture(livrerequest.ImageCouverture);
 
         Livre nouveauLivre = service.ajouterLivre(livre);
         return ResponseEntity.ok(nouveauLivre);
 
     }
+//    @GetMapping
+//    public String afficherLivre(LivreRequest livreRequest){
+//        List<Livre> livres = afficherLivre(livreRequest).();
+//
+//        return "livres";
+//    }
 
     @DeleteMapping("/supprimer/{id}")
     public ResponseEntity<Void> supprimerLivre(@PathVariable Long id) {
@@ -60,7 +70,7 @@ public class LivreController {
             Livre editerLivre = service.ajouterLivre(livre);
             return ResponseEntity.ok(editerLivre);
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(new Livre());
         }
     }
 

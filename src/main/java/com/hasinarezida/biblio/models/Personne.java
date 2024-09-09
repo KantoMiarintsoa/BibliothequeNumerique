@@ -14,10 +14,6 @@ public abstract class Personne {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
-
-    @Column(nullable = false)
-    private String username;
-
     @Column(name = "last_name")
     private String LastName;
 
@@ -27,14 +23,6 @@ public abstract class Personne {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getLastName() {

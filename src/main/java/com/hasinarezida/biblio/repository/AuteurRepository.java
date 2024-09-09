@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface AuteurRepository extends JpaRepository<Auteur,Long> {
-    List<Auteur> findByPseudo(String pseudo);
+    List<Auteur> findByUsername(String username);
     List<Auteur> findByEmail(String email);
 }
 

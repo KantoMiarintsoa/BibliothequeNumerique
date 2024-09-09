@@ -7,19 +7,16 @@ import java.util.List;
 @Entity
 //@DiscriminatorValue("AUTEUR")
 public class Auteur extends Personne {
-
-    @Column(name = "pseudo")
-    private String pseudo;
-
-
-
-    public String getPseudo() {
-        return pseudo;
+    @Column(nullable = false)
+    public String getUsername() {
+        return username;
     }
 
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
+    private String username;
 
     @OneToMany(mappedBy = "auteur" ,fetch=FetchType.EAGER)
     private List<Livre>livres;

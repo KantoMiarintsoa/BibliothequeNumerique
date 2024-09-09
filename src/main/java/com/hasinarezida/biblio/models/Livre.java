@@ -15,7 +15,11 @@ public class Livre {
     private String Edition;
     private Date AnneeEdition;
     private long cathegories_Id;
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date DateSortie;
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date DatePublication;
     private String description;
     private String ImageCouverture;

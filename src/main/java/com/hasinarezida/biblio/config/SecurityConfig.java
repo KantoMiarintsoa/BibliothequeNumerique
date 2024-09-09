@@ -16,10 +16,13 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/register")
                         .ignoringRequestMatchers("/api/livre/ajout")
+                        .ignoringRequestMatchers("/api/login")
+
+
 
                 )
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/home", "/about", "/login", "/register", "/static/**", "/css/**", "/js/**", "/api/register","/api/livre/ajout","/AuteurPage").permitAll()
+                        .requestMatchers("/home", "/about", "/login", "/register", "/static/**", "/css/**", "/js/**", "/api/register","/api/livre/ajout","/AuteurPage","api/login").permitAll()
                         .requestMatchers("/auteur/**").hasRole("AUTEUR")
                         .anyRequest().authenticated()
                 )

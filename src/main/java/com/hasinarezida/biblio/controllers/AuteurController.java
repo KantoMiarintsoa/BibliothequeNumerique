@@ -21,7 +21,6 @@ public class AuteurController {
         return ResponseEntity.ok(nouveauAuteur);
     }
 
-
     @DeleteMapping("/supprimer/{id}")
     public ResponseEntity<Auteur> supprimerAuteur(@PathVariable Long id) {
         service.deleteById(id);
@@ -35,7 +34,7 @@ public class AuteurController {
         Optional<Auteur> auteurOpt = service.findById(id);
         if (auteurOpt.isPresent()) {
             Auteur auteur = auteurOpt.get();
-            auteur.setPseudo(auteurDetails.getPseudo());
+            auteur.setUsername(auteurDetails.getUsername());
             Auteur editerAuteur = service.ajouterAuteur(auteur);
             return ResponseEntity.ok(editerAuteur);
         } else {

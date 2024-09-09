@@ -13,9 +13,7 @@
 <body>
 <div class="container">
     <h2>Liste de Livres</h2>
-    <div class="book-container">
-
-    </div>
+    <div class="book-container"></div>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Ajouter livre
@@ -33,37 +31,24 @@
                 <div class="modal-body">
                     <form id="addBookForm">
                         <div class="form-group">
-                            <label for="author">Auteur</label>
-                            <input type="text" class="form-control" id="author" name="author" placeholder="Nom de l'auteur">
-                        </div>
-                        <div class="form-group">
-                            <label for="pseudo">Pseudo</label>
-                            <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Votre pseudo">
-                        </div>
-                        <div class="form-group">
                             <label for="title">Titre du Livre</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Titre">
+                            <input type="text" class="form-control" id="title" name="titre" placeholder="Titre">
                         </div>
                         <div class="form-group">
                             <label for="publisher">Éditeur</label>
-                            <input type="text" class="form-control" id="publisher" name="publisher" placeholder="Nom de l'éditeur">
+                            <input type="text" class="form-control" id="publisher" name="Editeur" placeholder="Nom de l'éditeur">
                         </div>
                         <div class="form-group">
                             <label for="edition">Édition</label>
-                            <input type="text" class="form-control" id="edition" name="edition" placeholder="Numéro d'édition">
+                            <input type="text" class="form-control" id="edition" name="Edition" placeholder="Numéro d'édition">
                         </div>
                         <div class="form-group">
                             <label for="year">Année d'édition</label>
-                            <input type="number" class="form-control" id="year" name="year" placeholder="Année">
+                            <input type="number" class="form-control" id="year" name="AnneeEdition" placeholder="Année">
                         </div>
                         <div class="form-group">
                             <label for="category">Catégorie</label>
-                            <select class="form-control" id="category" name="category">
-                                <option>Roman</option>
-                                <option>Science-fiction</option>
-                                <option>Histoire</option>
-                                <option>Philosophie</option>
-                            </select>
+                            <input type="number" class="form-control" id="category" name="cathegories_Id" placeholder="ID Catégorie">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
@@ -71,11 +56,11 @@
                         </div>
                         <div class="form-group">
                             <label for="coverImage">Image de couverture</label>
-                            <input type="file" class="form-control-file" id="coverImage" name="coverImage">
+                            <input type="file" class="form-control-file" id="coverImage" name="ImageCouverture">
                         </div>
                         <div class="form-group">
                             <label for="language">Langue</label>
-                            <select class="form-control" id="language" name="language">
+                            <select class="form-control" id="language" name="langue">
                                 <option>Français</option>
                                 <option>Anglais</option>
                                 <option>Espagnol</option>
@@ -85,7 +70,7 @@
                         </div>
                         <div class="form-group">
                             <label for="file">Fichier</label>
-                            <input type="file" class="form-control-file" id="file" name="file">
+                            <input type="file" class="form-control-file" id="file" name="fichier">
                         </div>
                     </form>
                 </div>
@@ -105,39 +90,42 @@
 
         submitButton.addEventListener('click', async () => {
             const formData = new FormData(form);
+
             const bookData = {
                 titre: formData.get('titre'),
+                Editeur: formData.get('Editeur'),
+                Edition: formData.get('Edition'),
+                AnneeEdition: new Date(formData.get('AnneeEdition') + "-01-01"),
+                cathegories_Id: parseInt(formData.get('cathegories_Id')),
                 description: formData.get('description'),
-                edition: formData.get('edition'),
-                fichier: formData.get('fichier'),
                 langue: formData.get('langue'),
-                imageCouverture: formData.get('imageCouverture'),
-                langue: formData.get('langue'),
-                editeur: formData.get('editeur'),
-                anneeEdition: formData.get('anneeEdition'),
-                datePublication:formData.get('datePublication')
-
+                DatePublication: new Date(),
+                ImageCouverture: formData.get('ImageCouverture'),
+                fichier: formData.get('fichier')
             };
 
+            const coverImageFile = formData.get('ImageCouverture');
+            const bookFile = formData.get('fichier');
 
-                const response = await fetch('/api/livre/ajout', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(jsonData)
-                });
+            const response = await fetch('/api/livre/ajout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bookData)
+            });
 
-                if (response.ok) {
-                    alert('Livre soumis pour validation avec succès');
-                    form.reset();
-                    $('#exampleModalCenter').modal('hide');
-                    const book = await response.json();
-                    addBookToPage(book);
-                } else {
-                    const errorData = await response.json();
-                    alert(`Erreur : ${errorData.message}`);
-                }
+            if (response.ok) {
+                alert('Livre soumis pour validation avec succès');
+                form.reset();
+                $('#exampleModalCenter').modal('hide');
+                const book = await response.json();
+                addBookToPage(book);
+            } else {
+                const errorData = await response.json();
+                alert(`Erreur : ${errorData.message}`);
+            }
+        });
     });
 </script>
 </body>

@@ -4,12 +4,11 @@ import java.util.Date;
 
 public class LivreRequest {
     public String titre;
-    public long Auteur_Id;
     public String Editeur;
     public String Edition;
     public Date AnneeEdition;
     public long cathegories_Id;
-    public Date DateSortie;
+    public Date dateSortie;
     public Date DatePublication;
     public String description;
     public String ImageCouverture;

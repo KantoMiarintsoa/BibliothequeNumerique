@@ -2,6 +2,7 @@ package com.hasinarezida.biblio.controllers;
 
 import com.hasinarezida.biblio.dto.RegisterRequest;
 import com.hasinarezida.biblio.models.Auteur;
+import com.hasinarezida.biblio.models.Livre;
 import com.hasinarezida.biblio.service.AuteurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,19 +32,23 @@ public class RegisterController {
     @PostMapping
     public ResponseEntity<String> registerAuteur(@RequestBody RegisterRequest request){
 
+        System.out.println("Email reçu : " + request.getEmail());
+
         if(auteurService.existEmail(request.getEmail())){
             return ResponseEntity.badRequest().body("Email already exists");
         }
 
         Auteur auteur = new Auteur();
         auteur.setEmail(request.getEmail());
-        auteur.setPseudo(request.getUsername());
         auteur.setFirst_name(request.getFirst_name());
         auteur.setLastName(request.getLast_name());
         auteur.setGender(request.getGender());
+        auteur.setUsername(request.getUsername());
 
-        auteurService.ajouterAuteur(auteur);
+        Auteur savedAuteur = auteurService.ajouterAuteur(auteur);
+        return ResponseEntity.ok("Auteur enregistré avec succès : " + savedAuteur.getUsername());
 
-        return ResponseEntity.ok().body("Saved successfully");
     }
+
 }
+

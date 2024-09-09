@@ -1,6 +1,9 @@
 package com.hasinarezida.biblio.dto;
 
+import jakarta.persistence.Column;
+
 public class RegisterRequest {
+    @Column(nullable = false, unique = true)
     public String getUsername() {
         return Username;
     }
@@ -37,3 +40,5 @@ public class RegisterRequest {
     public String password;
     public String phone;
 }
+
+
