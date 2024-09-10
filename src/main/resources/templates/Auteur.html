@@ -16,7 +16,7 @@
 </header>
 
 <section>
-    <img th:src="@{/images/nature.jpg}" alt="Bannière" class="header-image">
+        <img th:src="@{/images/nature.jpg}" alt="Bannière" class="header-image">
 </section>
 
 <main>
@@ -28,32 +28,33 @@
     <div class="reglement-item">
         <img th:src="@{/images/author.jpg}" alt="Règlement 1">
         <div class="text-content">
-            <h3>Règlement 1</h3>
-            <p>Description du règlement 1</p>
+            <h3>Authentification recquise</h3>
+            <p> L'auteur doit être connecté à son compte pour soumettre un livre. Si un auteur n'a pas encore de compte, il doit s'inscrire sur la plateforme.</p>
         </div>
     </div>
 
     <div class="reglement-item">
         <img th:src="@{/images/cosmotique.png}" alt="Méthode pour ajouter un livre">
         <div class="text-content">
-            <h3>Méthode pour ajouter un livre</h3>
-            <p>Description du règlement 2</p>
+            <h3> Détails du livre complets</h3>
+
+            <p> Le livre doit être accompagné de toutes les informations requises, telles que le titre, le résumé, le genre, les mots-clés, et une couverture. Ces informations permettent une meilleure visibilité et organisation du catalogue.</p>
         </div>
     </div>
 
     <div class="reglement-item">
         <img th:src="@{/images/politique.png}" alt="Méthode pour bien ajouter un livre">
         <div class="text-content">
-            <h3>Méthode pour bien ajouter un livre à la plateforme</h3>
-            <p>Description pour bien ajouter un livre sur la plateforme</p>
+            <h3>Fichier de haute qualite</h3>
+            <p>Le fichier du livre, s'il est en format numérique (PDF, ePub), doit respecter les exigences de qualité, être lisible et correctement formaté.</p>
         </div>
     </div>
 
     <div class="reglement-item">
         <img th:src="@{/images/psyco.jpg}" alt="Règlement de l'auteur">
         <div class="text-content">
-            <h3>Règlement de l'auteur</h3>
-            <p>Description du règlement pour l'auteur</p>
+            <h3>Verification des droits d auteur</h3>
+            <p> L'auteur doit garantir que l'œuvre soumise est la sienne et qu'elle ne viole pas les droits d'auteur d'un tiers. Un document prouvant les droits d'exploitation peut être demandé.</p>
         </div>
     </div>
 </div>
@@ -77,9 +78,9 @@
 
         <div class="footer-section social">
             <h3>Suivez-moi</h3>
-            <a href="#"><img th:src="@{/images/facebook.png}" alt="Facebook"></a>
+            <a th:href="@{/facebook}"><img th:src="@{/images/facebook.png}" alt="Facebook"></a>
             <a href="#"><img th:src="@{/images/twitter.png}" alt="Twitter"></a>
-            <a href="#"><img th:src="@{/images/instagram.png}" alt="Instagram"></a>
+            <a href="#"><img th:src="@{/images/instagramm.png}" alt="Instagram"></a>
             <a href="#"><img th:src="@{/images/linkedin.png}" alt="LinkedIn"></a>
         </div>
     </div>
@@ -88,6 +89,5 @@
         <p>&copy; 2024 Auteur. Tous droits réservés.</p>
     </div>
 </footer>
-
 </body>
 </html>

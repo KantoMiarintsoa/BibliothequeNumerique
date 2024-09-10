@@ -188,4 +188,14 @@ footer {
         margin-bottom: 20px;
     }
 }
+.reglement-item img,
+.footer-section.social img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.reglement-item img:hover,
+.footer-section.social img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
 

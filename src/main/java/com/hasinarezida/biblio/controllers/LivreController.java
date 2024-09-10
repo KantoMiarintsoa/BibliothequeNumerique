@@ -1,5 +1,4 @@
 package com.hasinarezida.biblio.controllers;
-
 import ch.qos.logback.core.model.Model;
 import com.hasinarezida.biblio.dto.LivreRequest;
 import com.hasinarezida.biblio.models.Auteur;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,15 +23,24 @@ public class LivreController {
     public ResponseEntity<Livre> ajouterLivre(@RequestBody LivreRequest livrerequest) {
         Livre livre = new Livre();
         livre.setTitre(livrerequest.titre);
-        livre.setEditeur(livrerequest.Editeur);
-        livre.setEdition(livrerequest.Edition);
-        livre.setAnneeEdition(livrerequest.AnneeEdition);
-        livre.setDatePublication(livrerequest.DatePublication);
+        livre.setEditeur(livrerequest.editeur);
+        livre.setEdition(livrerequest.edition);
+
+        if (livrerequest.getAnneeEdition() != null) {
+            livre.setAnneeEdition(Date.valueOf(livrerequest.getAnneeEdition()));
+        }
+
+        if (livrerequest.getDatePublication() != null) {
+            livre.setDatePublication(Date.valueOf(livrerequest.getDatePublication()));
+        }
         livre.setDescription(livrerequest.description);
-        livre.setDateSortie(livrerequest.dateSortie);
+
+        if (livrerequest.getDateSortie() != null) {
+            livre.setDateSortie(Date.valueOf(livrerequest.getDateSortie()));
+        }
         livre.setLangue(livrerequest.langue);
         livre.setFichier(livrerequest.fichier);
-        livre.setImageCouverture(livrerequest.ImageCouverture);
+        livre.setImageCouverture(livrerequest.imageCouverture);
 
         Livre nouveauLivre = service.ajouterLivre(livre);
         return ResponseEntity.ok(nouveauLivre);

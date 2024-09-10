@@ -1,62 +1,62 @@
-<!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{css/login.css}">
-    <title>Login</title>
-</head>
-<body>
-<div class="container">
-    <div class="form-container">
-        <h2>Connexion</h2>
-        <form action="/login" method="post">
-            <div class="form-group">
-                <label for="username">Email ou nom d'utilisateur:</label>
-                <input type="text" id="username" name="username" placeholder="" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Mot de passe:</label>
-                <input type="password" id="password" name="password" placeholder="" required>
-            </div>
-            <button type="submit" class="login-button">Se connecter</button>
+<!--<!DOCTYPE html>-->
+<!--<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" th:href="@{css/login.css}">-->
+<!--    <title>Login</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <div class="form-container">-->
+<!--        <h2>Connexion</h2>-->
+<!--        <form action="/login" method="post">-->
+<!--            <div class="form-group">-->
+<!--                <label for="username">Email ou nom d'utilisateur:</label>-->
+<!--                <input type="text" id="username" name="username" placeholder="" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="password">Mot de passe:</label>-->
+<!--                <input type="password" id="password" name="password" placeholder="" required>-->
+<!--            </div>-->
+<!--            <button type="submit" class="login-button">Se connecter</button>-->
 
-        </form>
-        <div class="links">
-            <a th:href="@{/register}">S'inscrire</a>
-            <a href="#">Mot de passe oublié?</a>
-        </div>
-    </div>
-</div>
+<!--        </form>-->
+<!--        <div class="links">-->
+<!--            <a th:href="@{/register}">S'inscrire</a>-->
+<!--            <a href="#">Mot de passe oublié?</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-<script>
-    document.getElementById('loginForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
+<!--<script>-->
+<!--    document.getElementById('loginForm').addEventListener('submit', async function(event) {-->
+<!--        event.preventDefault();-->
 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const Email = document.getElementById('Email').value;
+<!--        const username = document.getElementById('username').value;-->
+<!--        const password = document.getElementById('password').value;-->
+<!--        const Email = document.getElementById('Email').value;-->
 
 
-        try {
-            const response = await fetch('http://localhost:8080/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, password,Email })
-            });
+<!--        try {-->
+<!--            const response = await fetch('http://localhost:8080/api/login', {-->
+<!--                method: 'POST',-->
+<!--                headers: {-->
+<!--                    'Content-Type': 'application/json'-->
+<!--                },-->
+<!--                body: JSON.stringify({ username, password,Email })-->
+<!--            });-->
 
-            if (response.ok) {
-                const data = await response.json();
-                console.log('connexion avec succes:', data);
-            } else {
-                const error = await response.json();
-                console.log('erreur lors de connexion:', error.message);
-            }
-        } catch (error) {
-            console.error('Erreur:', error);
-        }
-    });
-</script>
-</body>
+<!--            if (response.ok) {-->
+<!--                const data = await response.json();-->
+<!--                console.log('connexion avec succes:', data);-->
+<!--            } else {-->
+<!--                const error = await response.json();-->
+<!--                console.log('erreur lors de connexion:', error.message);-->
+<!--            }-->
+<!--        } catch (error) {-->
+<!--            console.error('Erreur:', error);-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->

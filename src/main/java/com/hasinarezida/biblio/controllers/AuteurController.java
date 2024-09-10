@@ -34,7 +34,7 @@ public class AuteurController {
         Optional<Auteur> auteurOpt = service.findById(id);
         if (auteurOpt.isPresent()) {
             Auteur auteur = auteurOpt.get();
-            auteur.setUsername(auteurDetails.getUsername());
+//            auteur.setusername(auteurDetails.getUsername());
             Auteur editerAuteur = service.ajouterAuteur(auteur);
             return ResponseEntity.ok(editerAuteur);
         } else {

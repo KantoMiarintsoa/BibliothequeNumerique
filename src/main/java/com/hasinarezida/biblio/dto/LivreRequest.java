@@ -1,18 +1,50 @@
 package com.hasinarezida.biblio.dto;
 
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 public class LivreRequest {
     public String titre;
-    public String Editeur;
-    public String Edition;
-    public Date AnneeEdition;
-    public long cathegories_Id;
-    public Date dateSortie;
-    public Date DatePublication;
+    public String editeur;
+    public String edition;
     public String description;
-    public String ImageCouverture;
+    public String imageCouverture;
     public String fichier;
     public String langue;
 
+    @DateTimeFormat(pattern = "yyyy")
+    private LocalDate anneeEdition;
+
+    public long cathegoriesId;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateSortie;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate datePublication;
+
+    public LocalDate getAnneeEdition() {
+        return anneeEdition;
+    }
+
+    public void setAnneeEdition(LocalDate anneeEdition) {
+        this.anneeEdition = anneeEdition;
+    }
+
+    public LocalDate getDateSortie() {
+        return dateSortie;
+    }
+
+    public void setDateSortie(LocalDate dateSortie) {
+        this.dateSortie = dateSortie;
+    }
+
+    public LocalDate getDatePublication() {
+        return datePublication;
+    }
+
+    public void setDatePublication(LocalDate datePublication) {
+        this.datePublication = datePublication;
+    }
 }
