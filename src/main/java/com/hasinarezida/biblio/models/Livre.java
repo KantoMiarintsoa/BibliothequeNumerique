@@ -1,6 +1,7 @@
 package com.hasinarezida.biblio.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 //import org.springframework.data.annotation.Id;
 
 import java.util.Date;
@@ -25,6 +26,21 @@ public class Livre {
     private String ImageCouverture;
     private String fichier;
     private String langue;
+
+    private String statut = "en_attente";
+
+
+    public Livre() {
+        this.statut = "en_attente";
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
 
     public long getId() {
         return id;
@@ -126,3 +142,5 @@ public class Livre {
     @JoinColumn(name="auteur_id")
     private Auteur auteur;
 }
+
+

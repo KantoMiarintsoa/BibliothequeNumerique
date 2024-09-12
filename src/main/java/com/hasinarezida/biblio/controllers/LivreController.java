@@ -41,6 +41,7 @@ public class LivreController {
         livre.setLangue(livrerequest.langue);
         livre.setFichier(livrerequest.fichier);
         livre.setImageCouverture(livrerequest.imageCouverture);
+        livre.setStatut("en_attente");
 
         Livre nouveauLivre = service.ajouterLivre(livre);
         return ResponseEntity.ok(nouveauLivre);

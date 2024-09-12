@@ -9,58 +9,117 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div th:replace="layout/sidebar :: sidebar"></div>
+
 </head>
 <body>
+
 <div class="container">
     <h2>Liste de Livres</h2>
-    <div class="book-container"></div>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Ajouter livre
     </button>
 
+
+
+    <div class="container my-4">
+        <h3 class="my-4">Livres en attente</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img th:src="@{/images/nature.jpg}" class="card-img-top" alt="Image de couverture">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre du Livre A</h5>
+                        <p class="card-text">Description du Livre A</p>
+                    </div>
+                    <div class="card-footer">Statut: En attente</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img th:src="@{/images/nature.jpg}" class="card-img-top" alt="Image de couverture">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre du Livre B</h5>
+                        <p class="card-text">Description du Livre B</p>
+                    </div>
+                    <div class="card-footer">Statut: En attente</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="my-4">Livres validés</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img th:src="@{/images/lecture.jpg}" class="card-img-top" alt="Image de couverture">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre du Livre C</h5>
+                        <p class="card-text">Description du Livre C</p>
+                    </div>
+                    <div class="card-footer">Statut: Validé</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="my-4">Livres non validés</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img th:src="@{/images/psyco.jpg}" class="card-img-top" alt="Image de couverture">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre du Livre D</h5>
+                        <p class="card-text">Description du Livre D</p>
+                    </div>
+                    <div class="card-footer">Statut: Non validé</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un Livre</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Ajouter un Livre</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="addBookForm">
+                    <form id="addBookForm" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="title">Titre du Livre</label>
-                            <input type="text" class="form-control" id="title" name="titre" placeholder="Titre">
+                            <input type="text" class="form-control" id="title" name="titre" placeholder="Titre" required>
                         </div>
                         <div class="form-group">
                             <label for="publisher">Éditeur</label>
-                            <input type="text" class="form-control" id="publisher" name="Editeur" placeholder="Nom de l'éditeur">
+                            <input type="text" class="form-control" id="publisher" name="editeur" placeholder="Nom de l'éditeur" required>
                         </div>
                         <div class="form-group">
                             <label for="edition">Édition</label>
-                            <input type="text" class="form-control" id="edition" name="Edition" placeholder="Numéro d'édition">
+                            <input type="text" class="form-control" id="edition" name="edition" placeholder="Numéro d'édition" required>
                         </div>
                         <div class="form-group">
                             <label for="year">Année d'édition</label>
-                            <input type="number" class="form-control" id="year" name="AnneeEdition" placeholder="Année">
+                            <input type="number" class="form-control" id="year" name="anneeEdition" placeholder="Année" required>
                         </div>
                         <div class="form-group">
                             <label for="category">Catégorie</label>
-                            <input type="number" class="form-control" id="category" name="cathegories_Id" placeholder="ID Catégorie">
+                            <input type="number" class="form-control" id="category" name="categorie_Id" placeholder="ID Catégorie" required>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Résumé du livre"></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Résumé du livre" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="coverImage">Image de couverture</label>
-                            <input type="file" class="form-control-file" id="coverImage" name="ImageCouverture">
+                            <input type="file" class="form-control-file" id="coverImage" name="imageCouverture" required>
                         </div>
                         <div class="form-group">
                             <label for="language">Langue</label>
-                            <select class="form-control" id="language" name="langue">
+                            <select class="form-control" id="language" name="langue" required>
                                 <option>Français</option>
                                 <option>Anglais</option>
                                 <option>Espagnol</option>
@@ -70,20 +129,68 @@
                         </div>
                         <div class="form-group">
                             <label for="file">Fichier</label>
-                            <input type="file" class="form-control-file" id="file" name="fichier">
+                            <input type="file" class="form-control-file" id="file" name="fichier" required>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary" id="submitBook">Valider</button>
+                    <button type="submit" class="btn btn-primary" form="addBookForm">Valider</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Scripts Bootstrap, Popper, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
 <script>
+    const pendingBooksContainer = document.getElementById('pendingBooksContainer');
+    const approvedBooksContainer = document.getElementById('approvedBooksContainer');
+    const rejectedBooksContainer = document.getElementById('rejectedBooksContainer');
+
+    function addBookToContainer(container, book) {
+        const bookCard = `
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="${book.cover}" class="card-img-top" alt="Image de couverture">
+                    <div class="card-body">
+                        <h5 class="card-title">${book.title}</h5>
+                        <p class="card-text">${book.description}</p>
+                        <p><strong>Langue:</strong> ${book.language}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Statut: ${book.status}</small>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.innerHTML += bookCard;
+    }
+
+    const pendingBooks = [
+        { title: 'Livre A', description: 'Description A', language: 'Français', cover: 'coverA.jpg', status: 'En attente' },
+    ];
+
+    const approvedBooks = [
+        { title: 'Livre B', description: 'Description B', language: 'Anglais', cover: 'coverB.jpg', status: 'Validé' },
+    ];
+
+    const rejectedBooks = [
+        { title: 'Livre C', description: 'Description C', language: 'Espagnol', cover: 'coverC.jpg', status: 'Non validé' },
+    ];
+
+    pendingBooks.forEach(book => addBookToContainer(pendingBooksContainer, book));
+    approvedBooks.forEach(book => addBookToContainer(approvedBooksContainer, book));
+    rejectedBooks.forEach(book => addBookToContainer(rejectedBooksContainer, book));
+
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('addBookForm');
         const submitButton = document.getElementById('submitBook');

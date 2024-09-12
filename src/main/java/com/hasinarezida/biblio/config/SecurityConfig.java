@@ -22,7 +22,7 @@ public class SecurityConfig {
 
                 )
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/home", "/about", "/login", "/register", "/static/**", "/css/**", "/images/**","/js/**", "/api/register","/api/livre/ajout","/AuteurPage","/api/login","/auteur","index").permitAll()
+                        .requestMatchers("/home", "/about", "/login", "/register", "/static/**", "/css/**", "/images/**", "/js/**", "/api/register", "/api/livre/ajout", "/AuteurPage", "/auteur", "/layout/sidebar").permitAll()
                         .requestMatchers("/auteur/**").hasRole("AUTEUR")
                         .anyRequest().authenticated()
                 )

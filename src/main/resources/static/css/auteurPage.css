@@ -1,3 +1,4 @@
+/* Général */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Conteneur principal */
 .container {
     max-width: 1200px;
     margin: 20px auto;
@@ -14,69 +16,99 @@ body {
     border-radius: 8px;
 }
 
+/* Titre principal */
 h2 {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.book-container {
+/* Titre de section */
+h3 {
+    font-size: 1.5rem;
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+/* Conteneur pour les listes de livres avec animation */
+.book-list-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.book-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     overflow: hidden;
-    max-width: 300px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    padding: 10px 0;
+    position: relative;
+    align-items: center; /* Centre les livres verticalement */
+    justify-content: center; /* Centre les livres horizontalement */
 }
 
-.book-image {
-    width: 100%;
-    height: auto;
-    display: block;
+.book-list {
+    display: flex;
+    align-items: center; /* Centre les livres verticalement */
+    animation: scroll-left 20s linear infinite;
 }
 
-.book-details {
-    padding: 10px;
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
-.book-details h3 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.book-details p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.add-button {
-    display: block;
-    width: 200px;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
+/* Carte de livre */
+.card {
+    flex: 0 0 auto; /* Ne pas contraindre la taille des cartes */
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    margin: 0 10px; /* Espacement entre les cartes */
+    white-space: normal;
+    text-align: center; /* Centre le texte dans les cartes */
 }
 
-.add-button:hover {
-    background-color: #0056b3;
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 180px;
+    object-fit: cover;
 }
-/* Modal Styles */
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #343a40;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+    padding: 10px 15px;
+    text-align: center;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.book-list-container:hover .book-list {
+    animation-play-state: paused;
+}
+
 .modal-content {
     border-radius: 8px;
     border: 1px solid #ddd;
@@ -139,7 +171,6 @@ h2 {
     border-color: #545b62;
 }
 
-/* Additional Styling for Button */
 button {
     font-size: 16px;
     padding: 10px 20px;
